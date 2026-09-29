@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - DivBuddy</title>
+  <style>
+    :root {
+      --bg: #0C1223;
+      --card-bg: #151D36;
+      --text: #F1F5F9;
+      --text-muted: #94A3B8;
+      --accent: #10B981;
+      --border: #243056;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 32px 24px;
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    h1 {
+      color: var(--accent);
+      margin-top: 0;
+      font-size: 2rem;
+    }
+    h2 {
+      color: var(--accent);
+      margin-top: 32px;
+      font-size: 1.3rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+    h3 {
+      font-size: 1.1rem;
+      color: #E2E8F0;
+      margin-top: 20px;
+    }
+    p, li {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+    strong {
+      color: var(--text);
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      padding-left: 24px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .highlight-box {
+      background: rgba(16, 185, 129, 0.08);
+      border-left: 4px solid var(--accent);
+      padding: 14px 18px;
+      border-radius: 4px;
+      margin: 20px 0;
+    }
+    .highlight-box p {
+      margin: 0;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="badge">Google Play Store & GDPR Compliant</div>
+    <h1>Privacy Policy for DivBuddy</h1>
+    <p><strong>Effective Date:</strong> September 29, 2026<br>
+    <strong>Last Updated:</strong> September 29, 2026</p>
+
+    <p>DivBuddy ("we", "our", or "us") provides a group expense splitting and debt settlement mobile application (the "App", package name: <code>com.rdba.divbuddy</code>). We are committed to protecting your privacy and being transparent about how data is handled.</p>
+
+    <div class="highlight-box">
+      <p><strong>Summary:</strong> DivBuddy can be used 100% offline without creating an account. Receipt OCR runs entirely on your device and images are never uploaded. We never harvest your contact list, and cloud synchronization is only used for shared groups you explicitly create or join.</p>
+    </div>
+
+    <h2>1. Overview & Privacy-First Architecture</h2>
+    <ul>
+      <li><strong>No Account Required:</strong> You can use DivBuddy entirely offline. All calculations and expense records remain on your device.</li>
+      <li><strong>Optional Cloud Sync:</strong> Cloud sync is optional and enabled only when you sign in with Google and join or create shared groups.</li>
+      <li><strong>On-Device Receipt Processing:</strong> Receipt scanning uses optical character recognition (OCR) running 100% on your device. Receipt photos are never transmitted to any external server.</li>
+    </ul>
+
+    <h2>2. Information We Collect and How We Use It</h2>
+    <h3>A. Information You Provide</h3>
+    <ul>
+      <li><strong>User Profile (Optional):</strong> If you sign in with Google via Firebase Authentication, we collect your name, email address, and profile picture URL solely to authenticate you and display your identity to fellow members in shared groups.</li>
+      <li><strong>Expense & Group Data:</strong> Names of groups, members, expense descriptions, amounts, dates, split distributions, and settlement records. For local groups, this is stored locally in SQLite. For shared groups, this is synced securely via Google Cloud Firestore.</li>
+      <li><strong>Pro Waitlist (Optional):</strong> If you choose to join the waitlist for future Pro features, your email is collected via Web3Forms solely to notify you upon availability.</li>
+    </ul>
+
+    <h3>B. Device Permissions & On-Device Data</h3>
+    <ul>
+      <li><strong>Camera & Photos:</strong> Used solely to capture or select receipts. Text extraction is handled on-device with Google ML Kit. <strong>Receipt images are never uploaded or stored remotely.</strong></li>
+      <li><strong>Device Contacts (Optional):</strong> Used only within the native picker to let you select a friend's name/email when adding a member. <strong>We do not upload or store your address book.</strong></li>
+      <li><strong>Notifications:</strong> Used to alert you to group invites and ledger updates.</li>
+    </ul>
+
+    <h3>C. Automatically Collected Information & Advertising</h3>
+    <ul>
+      <li><strong>Google AdMob:</strong> The App contains rewarded video ads that allow you to earn virtual in-app coins. AdMob may collect device identifiers (GAID), IP address, and performance telemetry to serve ads and prevent fraud. For details, see <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google's Advertising Privacy Policies</a>.</li>
+      <li><strong>Virtual Coins:</strong> The in-app coin balance is stored strictly on your local device and has no real-world monetary value.</li>
+    </ul>
+
+    <h2>3. Third-Party Service Providers</h2>
+    <ul>
+      <li><strong>Google Firebase</strong> (Authentication, Cloud Firestore, Cloud Messaging) — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+      <li><strong>Google AdMob</strong> (Rewarded Ads) — <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">AdMob Policies</a></li>
+      <li><strong>Web3Forms</strong> (Optional Waitlist Form) — <a href="https://web3forms.com/privacy" target="_blank" rel="noopener">Web3Forms Privacy</a></li>
+    </ul>
+
+    <h2>4. Data Retention, Security & Deletion</h2>
+    <ul>
+      <li><strong>Security:</strong> All cloud communications use encrypted HTTPS/TLS connections.</li>
+      <li><strong>Local Data Deletion:</strong> You can clear all data instantly via <strong>Settings &gt; Reset all data</strong> or via Android device settings.</li>
+      <li><strong>In-App Account Deletion:</strong> You can permanently delete your Firebase user account and cloud data directly inside the App by visiting <strong>Settings &gt; Account identity &gt; Delete account</strong>.</li>
+      <li><strong>Web Deletion Request &amp; Policy:</strong> If you have uninstalled the App or prefer a web-based request, you can submit an account and cloud data deletion request via our <a href="delete-account.html">Account Deletion &amp; Data Request Page</a>, or email <strong>support@yourdomain.com</strong> with the subject <em>"Data Deletion Request"</em>.</li>
+    </ul>
+
+    <h2>5. Children's Privacy</h2>
+    <p>DivBuddy is a general-audience financial utility tool and is not intended for children under 13 (or under 16 in the EEA). We do not knowingly collect personal data from children.</p>
+
+    <h2>6. Contact Us</h2>
+    <p>If you have any questions about this Privacy Policy or your data, please contact:</p>
+    <p><strong>Email:</strong> support@yourdomain.com<br>
+    <strong>Developer:</strong> DivBuddy Team</p>
+  </div>
+</body>
+</html>
