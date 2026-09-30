@@ -4,10 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Account Deletion &amp; Data Request - DivBuddy</title>
-  <!-- Firebase Web SDK (Compat mode for standalone HTML) -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
   <style>
     :root {
       --bg: #0C1223;
@@ -15,6 +11,7 @@
       --text: #F1F5F9;
       --text-muted: #94A3B8;
       --accent: #10B981;
+      --accent-hover: #059669;
       --danger: #EF4444;
       --border: #243056;
       --input-bg: #0F172A;
@@ -83,11 +80,11 @@
       color: var(--accent);
       margin-bottom: 16px;
     }
-    .auto-box {
+    .highlight-box {
       background: rgba(16, 185, 129, 0.08);
-      border: 1px solid var(--accent);
-      padding: 20px;
-      border-radius: 10px;
+      border-left: 4px solid var(--accent);
+      padding: 14px 18px;
+      border-radius: 4px;
       margin: 20px 0;
     }
     .warning-box {
@@ -148,8 +145,11 @@
       gap: 10px;
       margin: 14px 0;
     }
-    .checkbox-container input {
-      margin-top: 4px;
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
     }
     .btn {
       background-color: var(--danger);
@@ -166,69 +166,37 @@
     .btn:hover {
       opacity: 0.9;
     }
-    .btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-    .btn-google {
-      background-color: #4285F4;
-      color: #FFFFFF;
-      border: none;
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
       padding: 12px 20px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       border-radius: 8px;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .btn-google:hover {
-      background-color: #3367D6;
-    }
-    .btn-secondary {
-      background-color: transparent;
-      color: var(--text-muted);
-      border: 1px solid var(--border);
-      padding: 10px 16px;
-      border-radius: 8px;
-      cursor: pointer;
+      transition: background 0.2s;
     }
     .btn-secondary:hover {
-      color: var(--text);
-      border-color: var(--text);
+      background-color: rgba(16, 185, 129, 0.1);
     }
     .success-msg {
+      display: none;
       background: rgba(16, 185, 129, 0.15);
       border: 1px solid var(--accent);
       color: #D1FAE5;
       padding: 16px;
       border-radius: 8px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
-    .error-msg {
-      background: rgba(239, 68, 68, 0.15);
-      border: 1px solid var(--danger);
-      color: #FECACA;
-      padding: 14px;
-      border-radius: 8px;
-      margin-top: 14px;
-    }
-    .profile-card {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      background: var(--input-bg);
-      padding: 14px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      margin: 14px 0;
-    }
-    .profile-avatar {
-      width: 46px;
-      height: 46px;
-      border-radius: 23px;
-      background-color: var(--border);
+    .copy-banner {
+      display: none;
+      background: rgba(16, 185, 129, 0.2);
+      color: #A7F3D0;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      margin-top: 10px;
     }
     .footer-links {
       margin-top: 36px;
@@ -245,108 +213,72 @@
 <body>
   <div class="container">
     <div class="badge">Google Play Account Deletion Compliance</div>
-    <h1>Account &amp; Data Deletion</h1>
+    <h1>Account &amp; Data Deletion Request</h1>
     <p><strong>App:</strong> DivBuddy (Expense Splitting &amp; Settlement)<br>
     <strong>Package:</strong> <code>com.rdba.divbuddy</code><br>
     <strong>Developer:</strong> DivBuddy Team</p>
 
-    <p>In accordance with Google Play's User Data &amp; Account Deletion policies, DivBuddy allows you to permanently delete your account and associated personal data at any time.</p>
+    <p>In accordance with Google Play's User Data &amp; Account Deletion policies, DivBuddy allows users to permanently delete their account and associated personal data at any time, both directly from within the application and via this web request page.</p>
 
-    <!-- AUTOMATIC WEB DELETION -->
-    <h2>1. Instant Online Deletion (Automatic)</h2>
-    <p>You can automatically delete your DivBuddy account and all associated cloud data right now directly from this browser without needing the mobile app:</p>
+    <h2>1. How to Delete Your Account In-App (Recommended)</h2>
+    <p>If you currently have the DivBuddy app installed on your smartphone, deleting your account is instant and automatic:</p>
+    <ol>
+      <li>Open the <strong>DivBuddy</strong> app.</li>
+      <li>Tap the <strong>Settings</strong> tab in the bottom navigation bar.</li>
+      <li>Under the <strong>Account identity</strong> section, tap <strong>Delete account</strong>.</li>
+      <li>Review the confirmation dialog. Choose whether you also wish to purge offline local data stored on your device.</li>
+      <li>Tap <strong>Permanently Delete Account</strong>. If prompted, complete the Google security verification.</li>
+    </ol>
+    <p>Upon confirmation, your Firebase authentication record, user profile, email mapping, and owned shared groups are removed immediately from Google Cloud servers.</p>
 
-    <div class="auto-box" id="autoAuthBox">
-      <div id="unauthView">
-        <p style="margin-top: 0; color: var(--text);">
-          Sign in with the Google account you used in DivBuddy to verify ownership and instantly delete your cloud data:
-        </p>
-        <button type="button" class="btn-google" id="googleSignInBtn" onclick="handleGoogleSignIn()">
-          <svg width="18" height="18" viewBox="0 0 18 18">
-            <path fill="#ffffff" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.616z"/>
-            <path fill="#ffffff" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.836.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/>
-            <path fill="#ffffff" d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957C.347 6.173 0 7.548 0 9s.347 2.827.957 4.039l3.007-2.332z"/>
-            <path fill="#ffffff" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 7.293C4.672 5.166 6.656 3.58 9 3.58z"/>
-          </svg>
-          Sign in with Google to Delete Account
-        </button>
-      </div>
+    <h2>2. Web-Based Deletion Request (If App is Uninstalled)</h2>
+    <p>If you have uninstalled DivBuddy and cannot access the app, you may submit your account and data deletion request using the form below:</p>
 
-      <div id="authView" style="display: none;">
-        <p style="color: var(--text); margin-top: 0; font-weight: 600;">Signed in to verify identity:</p>
-        <div class="profile-card">
-          <img id="userPhoto" class="profile-avatar" src="" alt="Profile Photo" />
-          <div>
-            <div id="userName" style="font-weight: 700; color: var(--text);"></div>
-            <div id="userEmailDisplay" style="font-size: 0.9rem; color: var(--text-muted);"></div>
-          </div>
-        </div>
-
-        <div class="warning-box">
-          <p><strong>Warning:</strong> Clicking the button below will immediately and permanently delete your Firebase user account, cloud profile, invitations, and cloud shared groups from Google servers. This action cannot be undone.</p>
-        </div>
-
-        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <button type="button" class="btn" id="confirmDeleteBtn" onclick="handleAutoDelete()">
-            Permanently Delete My DivBuddy Account
-          </button>
-          <button type="button" class="btn-secondary" onclick="handleSignOut()">
-            Cancel / Sign Out
-          </button>
-        </div>
-      </div>
-
-      <div id="autoStatus" style="display: none; margin-top: 14px; font-weight: 600; color: var(--accent);"></div>
-      <div id="autoError" class="error-msg" style="display: none;"></div>
-      <div id="autoSuccess" class="success-msg" style="display: none;">
-        <h3 style="margin-top: 0; color: var(--accent);">Account Successfully Deleted</h3>
-        <p style="margin-bottom: 0;">Your Google Firebase user account, cloud profile, and all associated remote records have been permanently erased from DivBuddy servers.</p>
-      </div>
+    <div class="warning-box">
+      <p><strong>Irreversible Action:</strong> Deletion of your account is permanent. Once processed, you will permanently lose access to any shared groups you owned in the cloud.</p>
     </div>
 
-    <!-- IN-APP DELETION -->
-    <h2>2. In-App Deletion Instructions (Fastest)</h2>
-    <p>If you currently have DivBuddy installed on your phone:</p>
-    <ol>
-      <li>Open <strong>DivBuddy</strong>.</li>
-      <li>Tap the <strong>Settings</strong> tab in the bottom bar.</li>
-      <li>Under <strong>Account identity</strong>, tap <strong>Delete account</strong>.</li>
-      <li>Confirm deletion. Your account and cloud records are deleted immediately.</li>
-    </ol>
-
-    <!-- MANUAL FALLBACK REQUEST FORM -->
-    <h2>3. Manual Deletion Request Form</h2>
-    <p>If you prefer to submit a manual deletion request by email or cannot use Google sign-in above:</p>
-
-    <form id="manualForm" onsubmit="handleManualSubmit(event)">
+    <form id="deletionForm" onsubmit="handleFormSubmit(event)">
       <div class="form-group">
-        <label for="manualEmail">Google Account Email Address *</label>
-        <input type="email" id="manualEmail" required placeholder="e.g. yourname@gmail.com" />
+        <label for="userEmail">Google Account Email Address used in DivBuddy *</label>
+        <input type="email" id="userEmail" required placeholder="e.g. alex@gmail.com" />
       </div>
 
       <div class="form-group">
-        <label for="manualScope">Deletion Scope *</label>
-        <select id="manualScope">
-          <option value="full">Delete Entire Account &amp; All Cloud Data</option>
-          <option value="cloud_only">Revoke Shared Group Memberships Only</option>
+        <label for="deletionScope">Scope of Deletion *</label>
+        <select id="deletionScope">
+          <option value="full">Delete Entire Account &amp; All Cloud Data (Auth, Profile, Owned Groups, Invites)</option>
+          <option value="cloud_only">Revoke Shared Group Memberships Only (Keep Account)</option>
         </select>
       </div>
 
+      <div class="form-group">
+        <label for="optionalNotes">Additional Notes (Optional)</label>
+        <textarea id="optionalNotes" rows="3" placeholder="Provide any additional details or instructions (optional)"></textarea>
+      </div>
+
       <div class="checkbox-container">
-        <input type="checkbox" id="manualConsent" required />
-        <label for="manualConsent" style="font-weight: normal; font-size: 0.9rem; margin-bottom: 0;">
-          I confirm that I am the owner of this Google account and request the permanent deletion of my account records.
+        <input type="checkbox" id="confirmConsent" required />
+        <label for="confirmConsent" style="font-weight: normal; font-size: 0.9rem; margin-bottom: 0;">
+          I confirm that I am the owner of this Google account and request the permanent deletion of my account and personal data from DivBuddy servers.
         </label>
       </div>
 
-      <button type="submit" class="btn" id="manualSubmitBtn">Submit Request</button>
-      <div id="manualSuccess" class="success-msg" style="display: none;">
-        <strong>Request Submitted!</strong> Your request has been sent to our team. Your records will be deleted within 3 to 5 business days.
+      <div class="btn-row">
+        <button type="submit" class="btn" id="submitBtn">Submit Deletion Request</button>
+        <button type="button" class="btn-secondary" onclick="copyTemplate()">Copy Request Email Template</button>
+      </div>
+
+      <div id="copyNotice" class="copy-banner">✓ Request email template copied to clipboard!</div>
+
+      <div id="successMsg" class="success-msg">
+        <strong>✓ Request Submitted!</strong> We have received your deletion request for <span id="targetEmailDisplay"></span>. Our support team will verify and permanently delete your records from Google Firebase and Cloud Firestore within 48 to 72 hours (maximum 30 days per Google Play policy). A confirmation will be sent to your email address.
       </div>
     </form>
 
-    <!-- DATA RETENTION BREAKDOWN -->
-    <h2>4. Data Retention &amp; Deletion Breakdown</h2>
+    <h2>3. Data Retention &amp; Deletion Breakdown</h2>
+    <p>The following table outlines what user data is deleted, what is retained, and the applicable retention period:</p>
+
     <table>
       <thead>
         <tr>
@@ -383,7 +315,7 @@
         </tr>
         <tr>
           <td><strong>Local On-Device Data (SQLite)</strong></td>
-          <td>Stored only on your physical smartphone. You can delete it at any time via <em>Settings &gt; Reset all data</em> or by clearing app storage in device settings.</td>
+          <td>Stored exclusively on your physical smartphone. You can delete it at any time via <em>Settings &gt; Reset all data</em> or by clearing app storage in device settings.</td>
           <td>Controlled 100% by you on-device.</td>
         </tr>
         <tr>
@@ -394,11 +326,12 @@
       </tbody>
     </table>
 
-    <h2>5. Contact Us</h2>
+    <h2>4. Manual Email Requests &amp; Support Contact</h2>
+    <p>You may also submit a deletion request or inquire about your data rights directly by emailing us:</p>
     <p>
       <strong>Email:</strong> <a href="mailto:support@yourdomain.com?subject=DivBuddy%20Account%20Deletion%20Request">support@yourdomain.com</a><br>
-      <strong>Subject:</strong> <em>DivBuddy Account Deletion Request</em><br>
-      <strong>SLA:</strong> Manual requests are verified and processed within 30 days maximum.
+      <strong>Subject line:</strong> <em>DivBuddy Account Deletion Request</em><br>
+      <strong>Response SLA:</strong> All valid deletion requests submitted via email are verified and processed within 48 to 72 hours (maximum 30 days under GDPR and Google Play policy).
     </p>
 
     <div class="footer-links">
@@ -408,135 +341,69 @@
   </div>
 
   <script>
-    // 1. Initialize Firebase Web SDK
-    var firebaseConfig = {
-      apiKey: "AIzaSyBbauQWbIjh2_6d8ETuwwqSOsq5oEWRG1U",
-      authDomain: "divbuddyapp.firebaseapp.com",
-      projectId: "divbuddyapp",
-      storageBucket: "divbuddyapp.firebasestorage.app",
-      messagingSenderId: "1096455797315",
-      appId: "1:1096455797315:web:92fbdea5c08ba771e5b2f6"
-    };
-
-    if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
-    }
-    var auth = firebase.auth();
-    var db = firebase.firestore();
-
-    var currentUser = null;
-
-    auth.onAuthStateChanged(function(user) {
-      currentUser = user;
-      var unauthView = document.getElementById('unauthView');
-      var authView = document.getElementById('authView');
-
-      if (user) {
-        unauthView.style.display = 'none';
-        authView.style.display = 'block';
-        document.getElementById('userName').innerText = user.displayName || 'Google Account';
-        document.getElementById('userEmailDisplay').innerText = user.email || '';
-        if (user.photoURL) {
-          document.getElementById('userPhoto').src = user.photoURL;
-        } else {
-          document.getElementById('userPhoto').style.display = 'none';
-        }
-      } else {
-        unauthView.style.display = 'block';
-        authView.style.display = 'none';
-      }
-    });
-
-    function handleGoogleSignIn() {
-      clearAutoMsgs();
-      var provider = new firebase.auth.GoogleAuthProvider();
-      auth.signInWithPopup(provider).catch(function(error) {
-        showAutoError("Google sign-in failed: " + (error.message || error));
-      });
+    function buildEmailContent() {
+      var email = document.getElementById('userEmail').value.trim();
+      var scope = document.getElementById('deletionScope').value;
+      var notes = document.getElementById('optionalNotes').value.trim();
+      var subject = "DivBuddy Account Deletion Request: " + (email || "[your-email]");
+      var body = "Account Deletion Request\n" +
+        "Email: " + (email || "[your-email]") + "\n" +
+        "Scope: " + scope + "\n" +
+        "Notes: " + (notes || "None") + "\n" +
+        "Submitted at: " + new Date().toISOString();
+      return { email: email, subject: subject, body: body };
     }
 
-    function handleSignOut() {
-      clearAutoMsgs();
-      auth.signOut();
-    }
-
-    function handleAutoDelete() {
-      if (!currentUser) return;
-      var confirmBtn = document.getElementById('confirmDeleteBtn');
-      var statusEl = document.getElementById('autoStatus');
-      clearAutoMsgs();
-
-      confirmBtn.disabled = true;
-      statusEl.style.display = 'block';
-      statusEl.innerText = "Deleting your cloud records and profile...";
-
-      var uid = currentUser.uid;
-      var emailLower = (currentUser.email || '').trim().toLowerCase();
-
-      // Step A: Delete Firestore profile and email mapping
-      var promises = [];
-      if (uid) {
-        promises.push(db.collection('users').doc(uid).delete().catch(function(){}));
-      }
-      if (emailLower) {
-        promises.push(db.collection('emails').doc(emailLower).delete().catch(function(){}));
-        promises.push(
-          db.collection('email_invites').doc(emailLower).collection('invites').get().then(function(snap) {
-            var batch = db.batch();
-            snap.forEach(function(doc) { batch.delete(doc.ref); });
-            return batch.commit().catch(function(){});
-          }).catch(function(){})
-        );
-      }
-
-      Promise.all(promises).then(function() {
-        statusEl.innerText = "Permanently deleting authentication account...";
-        return currentUser.delete();
-      }).then(function() {
-        document.getElementById('authView').style.display = 'none';
-        statusEl.style.display = 'none';
-        document.getElementById('autoSuccess').style.display = 'block';
-      }).catch(function(error) {
-        confirmBtn.disabled = false;
-        statusEl.style.display = 'none';
-        if (error.code === 'auth/requires-recent-login') {
-          showAutoError("Security verification required. Please click Cancel / Sign Out and sign in again before deleting.");
-        } else {
-          showAutoError("Account deletion failed: " + (error.message || error));
-        }
-      });
-    }
-
-    function showAutoError(msg) {
-      var errEl = document.getElementById('autoError');
-      errEl.innerText = msg;
-      errEl.style.display = 'block';
-    }
-
-    function clearAutoMsgs() {
-      document.getElementById('autoError').style.display = 'none';
-      document.getElementById('autoSuccess').style.display = 'none';
-      document.getElementById('autoStatus').style.display = 'none';
-    }
-
-    function handleManualSubmit(event) {
+    function handleFormSubmit(event) {
       event.preventDefault();
-      var email = document.getElementById('manualEmail').value.trim();
-      var scope = document.getElementById('manualScope').value;
-      var btn = document.getElementById('manualSubmitBtn');
+      var email = document.getElementById('userEmail').value.trim();
+      var submitBtn = document.getElementById('submitBtn');
+      var successMsg = document.getElementById('successMsg');
+      var emailDisplay = document.getElementById('targetEmailDisplay');
 
       if (!email) return;
-      btn.disabled = true;
-      btn.innerText = "Submitting...";
 
-      var subject = encodeURIComponent("DivBuddy Account Deletion Request: " + email);
-      var body = encodeURIComponent("Please delete my DivBuddy account.\nEmail: " + email + "\nScope: " + scope + "\nDate: " + new Date().toISOString());
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Submitting...";
+
+      var data = buildEmailContent();
+      var mailtoUrl = "mailto:support@yourdomain.com?subject=" + encodeURIComponent(data.subject) + "&body=" + encodeURIComponent(data.body);
 
       setTimeout(function() {
-        btn.style.display = "none";
-        document.getElementById('manualSuccess').style.display = "block";
-        window.location.href = "mailto:support@yourdomain.com?subject=" + subject + "&body=" + body;
-      }, 600);
+        submitBtn.style.display = "none";
+        emailDisplay.innerText = email;
+        successMsg.style.display = "block";
+
+        // Open user's default email client
+        window.location.href = mailtoUrl;
+      }, 500);
+    }
+
+    function copyTemplate() {
+      var data = buildEmailContent();
+      var fullText = "To: support@yourdomain.com\nSubject: " + data.subject + "\n\n" + data.body;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(fullText).then(showCopyNotice).catch(fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
+
+      function fallbackCopy() {
+        var tempArea = document.createElement("textarea");
+        tempArea.value = fullText;
+        document.body.appendChild(tempArea);
+        tempArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempArea);
+        showCopyNotice();
+      }
+
+      function showCopyNotice() {
+        var notice = document.getElementById("copyNotice");
+        notice.style.display = "block";
+        setTimeout(function() { notice.style.display = "none"; }, 3500);
+      }
     }
   </script>
 </body>
