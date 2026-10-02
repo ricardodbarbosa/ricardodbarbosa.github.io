@@ -84,7 +84,16 @@ WaterBuddy is a general wellness, habit-building, and hydration tracking applica
 
 ---
 
-## 7. Third-Party Services and Data Sharing
+## 7. Sensitive Events Policy Compliance
+
+In accordance with Google Play's **Sensitive Events Policy**:
+- WaterBuddy does not capitalize on, exploit, or reference public health emergencies, disease outbreaks, epidemics/pandemics, natural disasters, or major conflicts.
+- The App does not claim to prevent, mitigate, or treat any infectious illness, virus, or acute medical emergency through hydration.
+- The App does not contain sensationalist content, price-gouging mechanisms, or deceptive marketing tied to sensitive world events.
+
+---
+
+## 8. Third-Party Services and Data Sharing
 
 We do not sell your personal data. We only share information with third parties in the following scenarios:
 - **Advertising Partners:** Google AdMob serves ads in the App. Google's use of advertising IDs and cookies is governed by their respective privacy policies.
@@ -93,7 +102,7 @@ We do not sell your personal data. We only share information with third parties 
 
 ---
 
-## 8. Data Retention and Deletion
+## 9. Data Retention and Deletion
 
 - **Local Data:** All hydration history and settings remain on your device until you:
   - Select **"Reset All Data"** in the App's Settings tab, or
@@ -102,7 +111,7 @@ We do not sell your personal data. We only share information with third parties 
 
 ---
 
-## 9. Google Play Data Safety & Deletion Requests
+## 10. Google Play Data Safety & Deletion Requests
 
 In accordance with Google Play's Data Safety and Account/Data Deletion policies:
 - **No Mandatory Account Creation:** WaterBuddy does not require account creation, registration, or logins.
@@ -111,13 +120,13 @@ In accordance with Google Play's Data Safety and Account/Data Deletion policies:
 
 ---
 
-## 10. Children's Privacy (COPPA & GDPR-K Compliance)
+## 11. Children's Privacy (COPPA & GDPR-K Compliance)
 
 WaterBuddy is not directed at children under the age of 13 (or under the age of 16 in the European Union). We do not knowingly collect personal identifiable information from children. If you believe that a child has provided us with personal information, please contact us immediately so we can remove it.
 
 ---
 
-## 11. Your Rights (GDPR & CCPA/CPRA)
+## 12. Your Rights (GDPR & CCPA/CPRA)
 
 Depending on your jurisdiction (such as the European Economic Area, the UK, or California, USA), you have rights regarding your personal information:
 - **Right to Access & Portability:** You can export all your hydration logs at any time via Settings > Export Data (JSON).
@@ -126,13 +135,13 @@ Depending on your jurisdiction (such as the European Economic Area, the UK, or C
 
 ---
 
-## 12. Changes to This Privacy Policy
+## 13. Changes to This Privacy Policy
 
 We may update this Privacy Policy from time to time. Any changes will be reflected in this document with an updated "Last Updated" date. Continued use of the App following any changes indicates your acceptance of the updated terms.
 
 ---
 
-## 13. Contact Us
+## 14. Contact Us
 
 If you have questions, feedback, or data privacy requests regarding WaterBuddy, please contact:
 
