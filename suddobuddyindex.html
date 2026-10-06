@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SudoBuddy - Logic Mystery & Sudoku Puzzle Game</title>
+  <meta name="description" content="SudoBuddy - Solve classic Sudoku puzzles and unravel floor plan murder mysteries in Murdoku. Legal, Privacy Policy, and Account Deletion center.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="https://raw.githubusercontent.com/ricardodbarbosa/sudobuddy/main/assets/icon.png" type="image/png">
+  <style>
+    :root {
+      --bg-dark: #0a0f1d;
+      --card-bg: #111827;
+      --surface-bg: #1e293b;
+      --border-color: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-secondary: #cbd5e1;
+      --amber: #f59e0b;
+      --amber-light: #fbbf24;
+      --amber-bg: rgba(245, 158, 11, 0.12);
+      --crimson: #ef4444;
+      --cyan: #06b6d4;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.65;
+      padding: 0;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.25rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #0a0f1d;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+
+    .logo-text h1 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .logo-text p {
+      font-size: 0.75rem;
+      color: var(--amber);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--amber-light);
+    }
+
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background: radial-gradient(circle at top, #1e293b 0%, var(--card-bg) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background-color: var(--amber-bg);
+      color: var(--amber);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff 60%, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto 2rem auto;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--amber);
+    }
+
+    .card.danger-card:hover {
+      border-color: var(--crimson);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--text-main);
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .btn-privacy {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #0a0f1d;
+    }
+
+    .btn-delete {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #ffffff;
+    }
+
+    .app-meta {
+      background-color: var(--surface-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .app-meta-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--amber-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .app-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      background-color: var(--card-bg);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      margin: 0 0.5rem;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-group">
+        <div class="logo-badge">🔍</div>
+        <div class="logo-text">
+          <h1>SudoBuddy</h1>
+          <p>Logic Mystery & Puzzle Game</p>
+        </div>
+      </a>
+      <nav>
+        <a href="sudobuddyprivacy.html">Privacy Policy</a>
+        <a href="suddobuddydelete-account.html">Delete Account</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="hero-badge">Google Play Compliance & Legal Center</span>
+      <h2>SudoBuddy Legal & Policy Center</h2>
+      <p>
+        Official privacy policy, account management, and data deletion resources for the SudoBuddy mobile game on Android and iOS.
+      </p>
+    </section>
+
+    <div class="cards-grid">
+      <!-- PRIVACY POLICY CARD -->
+      <div class="card">
+        <div>
+          <div class="card-icon">📜</div>
+          <h3>Privacy Policy</h3>
+          <p>
+            Learn how SudoBuddy handles your data, ensures GDPR and CCPA compliance, uses Google Firebase Authentication and Cloud Firestore for leaderboards, and keeps your gameplay private.
+          </p>
+        </div>
+        <a href="privacy.html" class="card-btn btn-privacy">
+          Read Privacy Policy &rarr;
+        </a>
+      </div>
+
+      <!-- DELETE ACCOUNT CARD -->
+      <div class="card danger-card">
+        <div>
+          <div class="card-icon">🗑️</div>
+          <h3>Delete Account & Data</h3>
+          <p>
+            Submit an account and personal data deletion request directly from the web, or follow instructions to delete your detective account instantly from inside the SudoBuddy app.
+          </p>
+        </div>
+        <a href="delete-account.html" class="card-btn btn-delete">
+          Delete Account & Data &rarr;
+        </a>
+      </div>
+    </div>
+
+    <section class="app-meta">
+      <div class="app-meta-title">Application Specification</div>
+      <div class="app-meta-grid">
+        <div><strong>App Name:</strong> SudoBuddy</div>
+        <div><strong>Package ID:</strong> com.rdba.sudobuddy</div>
+        <div><strong>Developer:</strong> Ricardo Barbosa</div>
+        <div><strong>Contact:</strong> sudobuddy.app@gmail.com</div>
+        <div><strong>Platform:</strong> Android (Google Play) &amp; iOS</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 SudoBuddy &bull; Developed by Ricardo Barbosa. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">
+      <a href="privacy.html">Privacy Policy</a> &bull;
+      <a href="delete-account.html">Account & Data Deletion</a> &bull;
+      <a href="https://github.com/ricardodbarbosa/sudobuddy" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </footer>
+
+</body>
+</html>

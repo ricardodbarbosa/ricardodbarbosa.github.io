@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - SudoBuddy</title>
+  <meta name="description" content="Privacy Policy for SudoBuddy - Sudoku and Murdoku logic puzzle mobile application. Information on data collection, privacy rights, and security.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="https://raw.githubusercontent.com/ricardodbarbosa/sudobuddy/main/assets/icon.png" type="image/png">
+  <style>
+    :root {
+      --bg-dark: #0a0f1d;
+      --card-bg: #111827;
+      --surface-bg: #1e293b;
+      --border-color: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-secondary: #cbd5e1;
+      --amber: #f59e0b;
+      --amber-light: #fbbf24;
+      --amber-bg: rgba(245, 158, 11, 0.12);
+      --crimson: #ef4444;
+      --emerald: #10b981;
+      --cyan: #06b6d4;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.65;
+      padding: 0;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.25rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #0a0f1d;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+
+    .logo-text h1 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .logo-text p {
+      font-size: 0.75rem;
+      color: var(--amber);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--amber-light);
+    }
+
+    .btn-delete-link {
+      background-color: rgba(239, 68, 68, 0.15);
+      border: 1px solid var(--crimson);
+      color: #fca5a5 !important;
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.825rem;
+      font-weight: 700;
+    }
+
+    .btn-delete-link:hover {
+      background-color: var(--crimson);
+      color: #ffffff !important;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+
+    .policy-hero {
+      background: linear-gradient(180deg, var(--card-bg) 0%, rgba(17, 24, 39, 0.6) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 2.25rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .policy-tag {
+      display: inline-block;
+      background-color: var(--amber-bg);
+      color: var(--amber);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+
+    .policy-hero h2 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+      color: var(--text-main);
+    }
+
+    .policy-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .policy-meta span strong {
+      color: var(--text-secondary);
+    }
+
+    .content-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.75rem;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--amber-light);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      font-size: 0.96rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul, ol {
+      margin: 0.75rem 0 1.25rem 1.5rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Google Play Data Safety Table */
+    .data-table-container {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    th {
+      background-color: var(--surface-bg);
+      color: var(--amber-light);
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background-color: rgba(30, 41, 59, 0.4);
+    }
+
+    .badge-yes {
+      background-color: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      display: inline-block;
+    }
+
+    .badge-no {
+      background-color: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      display: inline-block;
+    }
+
+    .badge-opt {
+      background-color: rgba(6, 182, 212, 0.15);
+      color: #22d3ee;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      display: inline-block;
+    }
+
+    .alert-box {
+      border-left: 4px solid var(--amber);
+      background-color: var(--amber-bg);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.25rem 0;
+    }
+
+    .alert-box.danger {
+      border-left-color: var(--crimson);
+      background-color: rgba(239, 68, 68, 0.1);
+    }
+
+    .alert-box p {
+      color: var(--text-main);
+      font-size: 0.92rem;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: #67e8f9;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      background-color: var(--card-bg);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      margin: 0 0.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .policy-hero h2 {
+        font-size: 1.6rem;
+      }
+      .policy-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .content-card {
+        padding: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-group">
+        <div class="logo-badge">🔍</div>
+        <div class="logo-text">
+          <h1>SudoBuddy</h1>
+          <p>Logic Mystery & Puzzle Game</p>
+        </div>
+      </a>
+      <nav>
+        <a href="sudobuddyprivacy.html" class="active">Privacy Policy</a>
+        <a href="sudobuddydelete-account.html" class="btn-delete-link">Delete Account</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="policy-hero">
+      <span class="policy-tag">Official Compliance Document</span>
+      <h2>Privacy Policy</h2>
+      <p>
+        Your privacy is paramount. This document details how <strong>SudoBuddy</strong> collects, utilizes, safeguards, and handles personal data in accordance with the Google Play Developer Distribution Agreement, Google Play Data Safety policies, the General Data Protection Regulation (GDPR), and the California Consumer Privacy Act (CCPA).
+      </p>
+      <div class="policy-meta">
+        <span><strong>Application:</strong> SudoBuddy</span>
+        <span><strong>Package Name:</strong> com.rdba.sudobuddy</span>
+        <span><strong>Developer:</strong> Ricardo Barbosa</span>
+        <span><strong>Last Updated:</strong> October 2026</span>
+      </div>
+    </section>
+
+    <!-- SECTION 1 -->
+    <article class="content-card">
+      <h3>1. Overview & Core Philosophy</h3>
+      <p>
+        SudoBuddy is designed as a logic puzzle game combining Classic Sudoku and Murdoku (a logic deduction floor plan mystery game), alongside real-time 1v1 Speed Duels and daily seeded investigations.
+      </p>
+      <p>
+        Our core privacy philosophy is simple:
+      </p>
+      <ul>
+        <li><strong>Play without an account:</strong> You can play SudoBuddy completely as a Guest without submitting any email, password, or identifying credentials.</li>
+        <li><strong>No ad trackers or data brokers:</strong> We do not sell, rent, monetize, or disclose your personal data to advertisers.</li>
+        <li><strong>Transparency:</strong> Any cloud connectivity (such as online leaderboards and multiplayer relay) operates exclusively to power in-game features.</li>
+      </ul>
+    </article>
+
+    <!-- SECTION 2: DATA SAFETY TABLE -->
+    <article class="content-card">
+      <h3>2. Google Play Data Safety Summary</h3>
+      <p>
+        The table below provides a quick reference to how user data is handled in SudoBuddy, mirroring our Google Play Console Data Safety declaration:
+      </p>
+
+      <div class="data-table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Data Type</th>
+              <th>Collection</th>
+              <th>Purpose</th>
+              <th>Shared With 3rd Parties?</th>
+              <th>Encrypted in Transit?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Email Address</strong></td>
+              <td><span class="badge-opt">Optional</span> (When signing in with Google)</td>
+              <td>Account authentication, cross-device sync</td>
+              <td><span class="badge-no">No</span></td>
+              <td><span class="badge-yes">Yes (TLS/HTTPS)</span></td>
+            </tr>
+            <tr>
+              <td><strong>User Identifier (UID)</strong></td>
+              <td><span class="badge-opt">Optional</span> (Google or Codename)</td>
+              <td>Global leaderboard identification, match score history</td>
+              <td><span class="badge-no">No</span></td>
+              <td><span class="badge-yes">Yes (TLS/HTTPS)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Display Name / Codename</strong></td>
+              <td><span class="badge-yes">Collected</span> (User-provided)</td>
+              <td>In-game display on leaderboards and Speed Duel matches</td>
+              <td><span class="badge-no">No</span></td>
+              <td><span class="badge-yes">Yes (TLS/HTTPS)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Profile Picture</strong></td>
+              <td><span class="badge-opt">Optional</span> (Google profile avatar)</td>
+              <td>Leaderboard display avatar</td>
+              <td><span class="badge-no">No</span></td>
+              <td><span class="badge-yes">Yes (TLS/HTTPS)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Gameplay & Solves</strong></td>
+              <td><span class="badge-yes">Collected</span></td>
+              <td>Solve times, streaks, cases solved, Hall of Fame rankings</td>
+              <td><span class="badge-no">No</span></td>
+              <td><span class="badge-yes">Yes (TLS/HTTPS)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Multiplayer Ephemeral Data</strong></td>
+              <td><span class="badge-opt">Temporary</span></td>
+              <td>Live race percentage, mistake count during active Speed Duel</td>
+              <td><span class="badge-no">No</span> (Relayed in memory only)</td>
+              <td><span class="badge-yes">Yes (WSS/TLS)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Crash & Diagnostic Logs</strong></td>
+              <td><span class="badge-opt">Automated</span></td>
+              <td>App stability and error diagnostics via Google Play Services</td>
+              <td><span class="badge-no">No</span></td>
+              <td><span class="badge-yes">Yes (TLS/HTTPS)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Device Preferences</strong></td>
+              <td><span class="badge-yes">Local Only</span></td>
+              <td>Themes (Dark/Classic/White), haptic feedback, pencil notes mode</td>
+              <td><span class="badge-no">No</span> (Stored on device)</td>
+              <td>N/A (Local Storage)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- SECTION 3 -->
+    <article class="content-card">
+      <h3>3. Detailed Data Collection & Processing</h3>
+      <p>We process the following categories of data strictly for the purposes described:</p>
+
+      <h4 style="color: var(--amber); margin: 1rem 0 0.5rem 0;">A. Authentication & Account Information</h4>
+      <ul>
+        <li><strong>Google Sign-In:</strong> If you choose to sign in using Google Sign-In, Firebase Authentication receives your Google User ID, display name, email address, and profile photo URL. This allows your detective rank and leaderboard placements to be preserved across sessions and devices.</li>
+        <li><strong>Detective Codename (Local / Guest):</strong> If you do not sign in with Google, you can enter an alias/codename (e.g., "Sherlock") which is stored locally on your device or submitted alongside scores.</li>
+        <li><strong>Guest Mode:</strong> Playing as a guest does not require any email or account creation.</li>
+      </ul>
+
+      <h4 style="color: var(--amber); margin: 1rem 0 0.5rem 0;">B. Leaderboard & Gameplay Records</h4>
+      <ul>
+        <li>When you complete a Daily Sudoku or Daily Murdoku puzzle while connected to the internet, your solve time (in seconds), date of the challenge, game type, and chosen display name are sent to <strong>Google Cloud Firestore</strong> to populate today's top detective leaderboard and the Hall of Fame.</li>
+        <li>You may reset or wipe these scores at any time from the app or by requesting account deletion.</li>
+      </ul>
+
+      <h4 style="color: var(--amber); margin: 1rem 0 0.5rem 0;">C. Real-time Multiplayer (Speed Duel)</h4>
+      <ul>
+        <li>When participating in a 1v1 Speed Duel, our relay server (Socket.io) pairs two players using a temporary 6-digit room code.</li>
+        <li>During the match, your solve percentage and mistake counter are broadcast in real-time to your opponent so both players can observe each other's progress.</li>
+        <li><strong>No permanent storage:</strong> Once the match ends or both players disconnect, all room data in server memory is automatically discarded.</li>
+      </ul>
+
+      <h4 style="color: var(--amber); margin: 1rem 0 0.5rem 0;">D. Local Device Storage (AsyncStorage)</h4>
+      <ul>
+        <li>Your puzzle progress, pencil notes, streaks, game settings (color theme mode, vibration/haptics toggle, notes-by-default, language preference) are saved directly in local flash storage on your device.</li>
+        <li>This data remains strictly on your device and is never transmitted across the network unless you explicitly submit a solved score.</li>
+      </ul>
+    </article>
+
+    <!-- SECTION 4 -->
+    <article class="content-card">
+      <h3>4. Third-Party Service Providers & SDKs</h3>
+      <p>
+        SudoBuddy incorporates industry-standard SDKs to provide backend authentication, database synchronization, and runtime services. Each provider operates under their respective privacy policies:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Google Play Services:</strong> Core Android operating system services, security, and app distribution.
+          <br><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>
+        </li>
+        <li>
+          <strong>Google Firebase (Authentication & Cloud Firestore):</strong> Secure user authentication and leaderboard database storage.
+          <br><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Data & Privacy Guidelines</a>
+        </li>
+        <li>
+          <strong>Google Sign-In for Android:</strong> OAuth identity provider SDK.
+          <br><a href="https://developers.google.com/identity/protocols/oauth2" target="_blank" rel="noopener">Google Identity Privacy</a>
+        </li>
+        <li>
+          <strong>Expo & React Native:</strong> Application runtime framework.
+          <br><a href="https://expo.dev/privacy" target="_blank" rel="noopener">Expo Privacy Policy</a>
+        </li>
+      </ul>
+    </article>
+
+    <!-- SECTION 5 -->
+    <article class="content-card">
+      <h3>5. Data Retention, Security & Deletion</h3>
+      <p>
+        <strong>Security:</strong> All communication between SudoBuddy and cloud services utilizes modern TLS/HTTPS and Secure WebSockets (WSS) encryption. Data stored in Google Cloud Firestore is protected by strict security rules prohibiting unauthorized access.
+      </p>
+      <p>
+        <strong>Retention Period:</strong>
+      </p>
+      <ul>
+        <li><strong>Account credentials and leaderboard scores:</strong> Retained for as long as your account remains active or until you request deletion.</li>
+        <li><strong>Multiplayer session data:</strong> Discarded immediately upon conclusion of the match session.</li>
+        <li><strong>Local puzzle history:</strong> Retained on device until you choose to reset stats in the Settings screen or clear app storage.</li>
+      </ul>
+
+      <div class="alert-box danger">
+        <p>
+          <strong>Account & Data Deletion:</strong> You have the absolute right to permanently delete your account and all associated cloud data at any time. You can do this either directly within the app (Settings &rarr; Delete Account) or via our dedicated web resource:
+          <br><br>
+          <a href="delete-account.html" style="color: #fca5a5; font-weight: 700; text-decoration: underline;">Open Account & Data Deletion Page &rarr;</a>
+        </p>
+      </div>
+    </article>
+
+    <!-- SECTION 6 -->
+    <article class="content-card">
+      <h3>6. User Rights (GDPR & CCPA / CPRA)</h3>
+      <p>Depending on your location, you hold the following statutory data protection rights:</p>
+      <ul>
+        <li><strong>Right of Access:</strong> You can request a confirmation of the personal data held about you.</li>
+        <li><strong>Right to Rectification:</strong> You can change your Detective Codename directly inside the app settings at any time.</li>
+        <li><strong>Right to Erasure ("Right to be Forgotten"):</strong> You can request the permanent deletion of your account and leaderboard scores.</li>
+        <li><strong>Right to Restriction / Objection:</strong> You can choose to play offline or strictly in Guest mode without cloud synchronization.</li>
+      </ul>
+      <p>
+        To exercise any of these rights, use the in-app settings or submit a request on our <a href="delete-account.html">Account Deletion Page</a> or via the contact email below.
+      </p>
+    </article>
+
+    <!-- SECTION 7 -->
+    <article class="content-card">
+      <h3>7. Children's Privacy (COPPA & GDPR-K)</h3>
+      <p>
+        SudoBuddy is an intellectual logic and deduction puzzle game designed for general audiences. We do not knowingly solicit, collect, or store personal data from children under 13 years of age (or under 16 in the European Union).
+      </p>
+      <p>
+        If we become aware that personal information has been collected from a child under the relevant age without parental consent, we will take immediate steps to purge that data from our servers.
+      </p>
+    </article>
+
+    <!-- SECTION 8 -->
+    <article class="content-card">
+      <h3>8. Changes to this Privacy Policy</h3>
+      <p>
+        We may update our Privacy Policy periodically to reflect app updates, new gameplay capabilities, or evolving legal obligations. Any updates will be posted on this page with an updated "Last Updated" revision date. We encourage you to review this policy periodically.
+      </p>
+    </article>
+
+    <!-- SECTION 9 -->
+    <article class="content-card">
+      <h3>9. Developer Contact Information</h3>
+      <p>
+        If you have questions, feedback, or requests concerning this Privacy Policy or the handling of your data in SudoBuddy, please contact the developer:
+      </p>
+      <ul>
+        <li><strong>Developer:</strong> Ricardo Barbosa</li>
+        <li><strong>Application:</strong> SudoBuddy (com.rdba.sudobuddy)</li>
+        <li><strong>Email:</strong> <a href="mailto:sudobuddy.app@gmail.com?subject=SudoBuddy%20Privacy%20Inquiry">sudobuddy.app@gmail.com</a></li>
+        <li><strong>GitHub Repository:</strong> <a href="https://github.com/ricardodbarbosa/sudobuddy" target="_blank" rel="noopener">github.com/ricardodbarbosa/sudobuddy</a></li>
+      </ul>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 SudoBuddy &bull; Developed by Ricardo Barbosa. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">
+      <a href="privacy.html">Privacy Policy</a> &bull;
+      <a href="delete-account.html">Account & Data Deletion</a> &bull;
+      <a href="https://github.com/ricardodbarbosa/sudobuddy" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </footer>
+
+</body>
+</html>

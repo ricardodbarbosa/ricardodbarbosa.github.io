@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Account & Data - SudoBuddy</title>
+  <meta name="description" content="Request account and personal data deletion for SudoBuddy. Compliant with Google Play Store User Data Deletion requirements.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="https://raw.githubusercontent.com/ricardodbarbosa/sudobuddy/main/assets/icon.png" type="image/png">
+  <style>
+    :root {
+      --bg-dark: #0a0f1d;
+      --card-bg: #111827;
+      --surface-bg: #1e293b;
+      --border-color: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-secondary: #cbd5e1;
+      --amber: #f59e0b;
+      --amber-light: #fbbf24;
+      --amber-bg: rgba(245, 158, 11, 0.12);
+      --crimson: #ef4444;
+      --crimson-light: #f87171;
+      --crimson-bg: rgba(239, 68, 68, 0.12);
+      --emerald: #10b981;
+      --emerald-bg: rgba(16, 185, 129, 0.12);
+      --cyan: #06b6d4;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.65;
+      padding: 0;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.25rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #0a0f1d;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+
+    .logo-text h1 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .logo-text p {
+      font-size: 0.75rem;
+      color: var(--amber);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--amber-light);
+    }
+
+    .btn-delete-link {
+      background-color: var(--crimson-bg);
+      border: 1px solid var(--crimson);
+      color: #fca5a5 !important;
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.825rem;
+      font-weight: 700;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+
+    .hero-banner {
+      background: linear-gradient(180deg, rgba(239, 68, 68, 0.1) 0%, var(--card-bg) 100%);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 14px;
+      padding: 2.25rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .badge-danger {
+      display: inline-block;
+      background-color: var(--crimson-bg);
+      color: var(--crimson-light);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-banner h2 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .hero-meta span strong {
+      color: var(--text-secondary);
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.75rem;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--amber-light);
+      margin-bottom: 1rem;
+    }
+
+    h3.danger {
+      color: var(--crimson-light);
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      font-size: 0.96rem;
+    }
+
+    ul, ol {
+      margin: 0.75rem 0 1.25rem 1.5rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Steps Cards */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+
+    .step-box {
+      background-color: var(--surface-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.25rem;
+      position: relative;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: var(--amber);
+      color: #0a0f1d;
+      font-weight: 800;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .step-box h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+    }
+
+    .step-box p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Web Form */
+    .form-container {
+      background-color: var(--surface-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      background-color: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--amber);
+    }
+
+    .form-hint {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #ffffff;
+      border: none;
+      padding: 0.85rem 1.75rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4);
+      transition: transform 0.15s, opacity 0.2s;
+    }
+
+    .btn-submit:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    .data-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.25rem 0;
+    }
+
+    .data-pill {
+      background-color: var(--surface-bg);
+      border-radius: 8px;
+      padding: 1.25rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .data-pill h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .data-pill.deleted {
+      border-left: 4px solid var(--crimson);
+    }
+
+    .data-pill.deleted h4 {
+      color: var(--crimson-light);
+    }
+
+    .data-pill.retained {
+      border-left: 4px solid var(--emerald);
+    }
+
+    .data-pill.retained h4 {
+      color: #34d399;
+    }
+
+    .status-msg {
+      display: none;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .status-msg.success {
+      background-color: var(--emerald-bg);
+      border: 1px solid var(--emerald);
+      color: #a7f3d0;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      background-color: var(--card-bg);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      margin: 0 0.5rem;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      .data-card-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-banner h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-group">
+        <div class="logo-badge">🔍</div>
+        <div class="logo-text">
+          <h1>SudoBuddy</h1>
+          <p>Logic Mystery & Puzzle Game</p>
+        </div>
+      </a>
+      <nav>
+        <a href="sudobuddyprivacy.html">Privacy Policy</a>
+        <a href="sudobuddydelete-account.html" class="btn-delete-link">Delete Account</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-banner">
+      <span class="badge-danger">Play Store Compliance</span>
+      <h2>Delete Account & User Data</h2>
+      <p>
+        In accordance with Google Play's Account Deletion Requirement and data protection regulations (GDPR, CCPA), this page provides clear instructions and an open web resource for users to request the permanent deletion of their <strong>SudoBuddy</strong> account and associated data.
+      </p>
+      <div class="hero-meta">
+        <span><strong>Application:</strong> SudoBuddy</span>
+        <span><strong>Package Name:</strong> com.rdba.sudobuddy</span>
+        <span><strong>Developer:</strong> Ricardo Barbosa</span>
+        <span><strong>Compliance:</strong> Google Play User Data Policy</span>
+      </div>
+    </section>
+
+    <!-- METHOD 1: IN-APP DELETION -->
+    <article class="card">
+      <h3>Method 1: Instant In-App Deletion (Fastest)</h3>
+      <p>
+        If you currently have the SudoBuddy app installed on your Android or iOS device, you can permanently erase your account and all associated cloud data immediately from within the app:
+      </p>
+
+      <div class="steps-grid">
+        <div class="step-box">
+          <div class="step-number">1</div>
+          <h4>Open Settings</h4>
+          <p>Launch SudoBuddy and tap the Settings gear icon located at the top right of the navigation bar.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-number">2</div>
+          <h4>Locate Account</h4>
+          <p>Find the "Detective Profile" section or scroll down to the "Data" management section.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-number">3</div>
+          <h4>Tap Delete Account</h4>
+          <p>Tap the red "Delete Account & Data" button to initiate permanent account erasure.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-number">4</div>
+          <h4>Confirm</h4>
+          <p>Confirm the deletion prompt. Your Firebase account and Firestore leaderboard records are instantly purged.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- METHOD 2: WEB REQUEST FORM -->
+    <article class="card">
+      <h3 class="danger">Method 2: Web Deletion Request (Without Reinstalling)</h3>
+      <p>
+        If you have uninstalled the app or prefer to submit a deletion request from the web, complete the form below. Once submitted, your deletion request will be processed, and all associated cloud records will be permanently removed.
+      </p>
+
+      <div class="form-container">
+        <form id="deletionForm" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label for="userEmail">Registered Email Address or Google Account *</label>
+            <input type="email" id="userEmail" required placeholder="your.email@gmail.com">
+            <div class="form-hint">Enter the Google email you used when signing into SudoBuddy.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="codename">Detective Codename / Nickname (Optional)</label>
+            <input type="text" id="codename" placeholder="e.g. Sherlock, Poirot">
+            <div class="form-hint">Your in-game name displayed on the leaderboards.</div>
+          </div>
+
+          <div class="form-group">
+            <label>Scope of Deletion *</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="deletionScope" value="full" checked>
+                <strong>Full Account & All Data:</strong> Erase Firebase Auth user, email, profile, and all leaderboard records.
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="deletionScope" value="scores_only">
+                <strong>Leaderboard Scores Only:</strong> Wipe daily puzzle solve times and Hall of Fame entries while preserving sign-in.
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="reason">Reason for Deletion (Optional feedback)</label>
+            <textarea id="reason" rows="3" placeholder="Let us know how we could improve (optional)"></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            <span>🗑️ Submit Deletion Request</span>
+          </button>
+        </form>
+
+        <div id="statusMessage" class="status-msg"></div>
+      </div>
+    </article>
+
+    <!-- DATA BREAKDOWN -->
+    <article class="card">
+      <h3>Data Deletion Details</h3>
+      <p>
+        Google Play requires developers to clearly specify what data is removed and what data is retained.
+      </p>
+
+      <div class="data-card-grid">
+        <div class="data-pill deleted">
+          <h4>❌ Data That Is Permanently Deleted</h4>
+          <ul>
+            <li><strong>Authentication Identity:</strong> Firebase Authentication user record, unique User ID (UID), and Google OAuth token linkage.</li>
+            <li><strong>Personal Profile:</strong> Registered email address, display name / Detective Codename, and Google profile picture avatar.</li>
+            <li><strong>Leaderboard Records:</strong> All Daily Sudoku and Daily Murdoku score entries in Google Cloud Firestore (<code>daily_scores</code> collection).</li>
+            <li><strong>Hall of Fame Statistics:</strong> Overall cases solved and active streak tallies.</li>
+            <li><strong>Local Device Data:</strong> Cleared automatically on in-app deletion (or on app uninstall).</li>
+          </ul>
+        </div>
+
+        <div class="data-pill retained">
+          <h4>🛡️ Data Retention Policy</h4>
+          <ul>
+            <li><strong>Zero Personal Data Retained:</strong> We do not retain your email, user ID, or any identifying records once account deletion has been processed.</li>
+            <li><strong>Multiplayer Matches:</strong> Real-time Speed Duel matches run in server memory (RAM) and are discarded immediately upon match completion.</li>
+            <li><strong>Server Diagnostics:</strong> Standard anonymized HTTP server logs (IP address, user agent) are automatically flushed and purged within 30 days.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4 style="color: var(--amber); margin-top: 1.5rem; margin-bottom: 0.5rem;">Processing Timeline</h4>
+      <ul>
+        <li><strong>In-App Deletion:</strong> Takes effect <strong>immediately</strong>.</li>
+        <li><strong>Web Form Request:</strong> Handled within <strong>7 business days</strong> (and within a maximum of 30 days pursuant to GDPR / CCPA statutory timelines).</li>
+      </ul>
+    </article>
+
+    <!-- CONTACT -->
+    <article class="card">
+      <h3>Direct Support Contact</h3>
+      <p>
+        You can also email your deletion request directly to our developer team with the subject line <code>"Account Deletion Request - SudoBuddy"</code>:
+      </p>
+      <p>
+        <strong>Email:</strong> <a href="mailto:sudobuddy.app@gmail.com?subject=Account%20Deletion%20Request%20-%20SudoBuddy" style="color: var(--cyan); font-weight: 700;">sudobuddy.app@gmail.com</a>
+        <br>
+        <strong>Developer:</strong> Ricardo Barbosa
+      </p>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 SudoBuddy &bull; Developed by Ricardo Barbosa. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">
+      <a href="privacy.html">Privacy Policy</a> &bull;
+      <a href="delete-account.html">Account & Data Deletion</a> &bull;
+      <a href="https://github.com/ricardodbarbosa/sudobuddy" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </footer>
+
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const email = document.getElementById('userEmail').value.trim();
+      const codename = document.getElementById('codename').value.trim();
+      const scopeRadio = document.querySelector('input[name="deletionScope"]:checked');
+      const scope = scopeRadio ? scopeRadio.value : 'full';
+      const reason = document.getElementById('reason').value.trim();
+
+      if (!email) {
+        alert('Please provide your registered email address.');
+        return;
+      }
+
+      const subject = encodeURIComponent('SudoBuddy Account Deletion Request - ' + email);
+      const body = encodeURIComponent(
+        'SudoBuddy Account Deletion Request\n\n' +
+        'App: SudoBuddy (com.rdba.sudobuddy)\n' +
+        'Registered Email: ' + email + '\n' +
+        'Detective Codename: ' + (codename || 'N/A') + '\n' +
+        'Deletion Scope: ' + (scope === 'full' ? 'Permanent Full Account & All Data Deletion' : 'Leaderboard Scores Only') + '\n' +
+        'Reason / Notes: ' + (reason || 'No additional notes') + '\n\n' +
+        'I confirm that I am the owner of this account and request the permanent deletion of my account and associated data.'
+      );
+
+      // Open email client with prefilled details
+      const mailtoUrl = 'mailto:sudobuddy.app@gmail.com?subject=' + subject + '&body=' + body;
+      
+      const statusBox = document.getElementById('statusMessage');
+      statusBox.className = 'status-msg success';
+      statusBox.style.display = 'block';
+      statusBox.innerHTML = '<strong>Request Prepared!</strong> Opening your email client to transmit the deletion request to our developer team. If your email client does not open automatically, please send an email to <a href="' + mailtoUrl + '" style="color:#6ee7b7; text-decoration:underline;">sudobuddy.app@gmail.com</a> with the subject line <code>"SudoBuddy Account Deletion Request"</code> and your registered email address.';
+
+      window.location.href = mailtoUrl;
+    }
+  </script>
+
+</body>
+</html>
