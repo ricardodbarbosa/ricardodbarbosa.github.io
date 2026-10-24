@@ -9,3 +9,6 @@ appodeal.com, 441698, DIRECT
 bidmachine.io,1,DIRECT
 
 bidmachine.io,466,DIRECT
+
+smartadserver.com, 4194-OB, RESELLER, 060d053dcf45cbf3
+smartadserver.com, 4194, RESELLER, 060d053dcf45cbf3
