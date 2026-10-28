@@ -1,19 +1,18 @@
 google.com, pub-9029346255206933, DIRECT, f08c47fec0942fa0
 
 #Appodeal
-
 appodeal.com, 441698, DIRECT
 
 #BidMachine
-
 bidmachine.io,1,DIRECT
-
 bidmachine.io,466,DIRECT
 
 smartadserver.com, 4194-OB, RESELLER, 060d053dcf45cbf3
-
 smartadserver.com, 4194, RESELLER, 060d053dcf45cbf3
-
 sharethrough.com, 4194-OB, RESELLER, 060d053dcf45cbf3
+sharethrough.com, 4194, RESELLER, 060d053dcf45cbf3
 
+smartadserver.com, 4194-OB, RESELLER, 060d053dcf45cbf3
+smartadserver.com, 4194, RESELLER, 060d053dcf45cbf3
+sharethrough.com, 4194-OB, RESELLER, 060d053dcf45cbf3
 sharethrough.com, 4194, RESELLER, 060d053dcf45cbf3
