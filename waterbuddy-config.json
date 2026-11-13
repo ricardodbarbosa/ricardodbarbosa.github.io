@@ -1,6 +1,6 @@
 {
   "app": "WaterBuddy",
-  "adMode": "none",
+  "adMode": "buddyapps",
   "allowCoinsWhenDisabled": true,
   "houseAdDurationSeconds": 5,
   "adRewardCoins": 5,
