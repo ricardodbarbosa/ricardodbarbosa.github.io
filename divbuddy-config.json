@@ -1,8 +1,9 @@
 {
   "app": "DivBuddy",
   "adMode": "none",
+  "allowCoinsWhenDisabled": true,
   "houseAdDurationSeconds": 5,
   "adRewardCoins": 5,
-  "notes": "Allowed adMode values: 'all' (Google Ads with 5s Buddy apps fallback), 'google' (Google Ads only), 'buddyapps' (Buddy apps only), 'none' (Ads disabled)",
+  "notes": "adMode: 'all', 'google', 'buddyapps', 'none'. allowCoinsWhenDisabled: true allows users to claim bonus coins even when ads are deactivated.",
   "updatedAt": "2026-11-13"
 }
