@@ -1,0 +1,8 @@
+{
+  "app": "DivBuddy",
+  "adMode": "none",
+  "houseAdDurationSeconds": 5,
+  "adRewardCoins": 5,
+  "notes": "Allowed adMode values: 'all' (Google Ads with 5s Buddy apps fallback), 'google' (Google Ads only), 'buddyapps' (Buddy apps only), 'none' (Ads disabled)",
+  "updatedAt": "2026-11-13"
+}
