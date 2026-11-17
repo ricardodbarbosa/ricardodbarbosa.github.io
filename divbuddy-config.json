@@ -1,9 +1,15 @@
 {
   "app": "DivBuddy",
   "adMode": "none",
+  "adModes": {
+    "banner": "google",
+    "interstitial": "google",
+    "rewarded": "buddyapps",
+    "native": "none"
+  },
   "allowCoinsWhenDisabled": true,
   "houseAdDurationSeconds": 5,
   "adRewardCoins": 5,
-  "notes": "adMode: 'all', 'google', 'buddyapps', 'none'. allowCoinsWhenDisabled: true allows users to claim bonus coins even when ads are deactivated.",
-  "updatedAt": "2026-11-13"
+  "notes": "adModes allows per-format mix: banner, interstitial, rewarded, native ('all', 'google', 'buddyapps', 'none'). adMode serves as the default fallback for unspecified formats. allowCoinsWhenDisabled: true allows users to claim bonus coins even when ads are deactivated.",
+  "updatedAt": "2026-11-17T15:40:00Z"
 }
