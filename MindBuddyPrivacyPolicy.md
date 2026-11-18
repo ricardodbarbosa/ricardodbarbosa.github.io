@@ -1,11 +1,11 @@
 # Privacy Policy for MindBuddy
 
 **Effective Date:** October 2, 2026  
-**Last Updated:** October 21, 2026
+**Last Updated:** November 17, 2026
 
-MindBuddy ("we," "our," or "us"), developed by Ricardo Barbosa (`ricardodbarbosa`), provides a focused Pomodoro timer, guided breathing exercises, ambient soundscapes, and on-device habit analysis mobile application (the "App", package `com.rdba.mindbuddy`).
+MindBuddy ("we," "our," or "us"), developed by Ricardo Barbosa (**Buddy App Studio**), provides a focused Pomodoro timer, guided breathing exercises, ambient soundscapes, and on-device habit analysis mobile application (the "App", package `com.rdba.mindbuddy`).
 
-We are committed to protecting your personal privacy and maintaining transparency regarding how your data is handled. This Privacy Policy details our data practices and addresses all requirements set forth by Google Play Developer Policies, including the **Health Apps Policy**, **User Data Policy**, **Children's Online Privacy Protection Act (COPPA)**, **Artificial Intelligence & Automated Systems Transparency**, and **Advertising / AdMob Data Disclosures**.
+We are committed to protecting your personal privacy and maintaining transparency regarding how your data is handled. This Privacy Policy details our data practices and addresses all requirements set forth by Google Play Developer Policies and the European Union General Data Protection Regulation (GDPR), including the **Health Apps Policy**, **User Data Policy**, **Children's Online Privacy Protection Act (COPPA)**, **Artificial Intelligence & Automated Systems Transparency**, and **Advertising / AdMob UMP Consent Disclosures**.
 
 ---
 
@@ -26,7 +26,7 @@ We are committed to protecting your personal privacy and maintaining transparenc
 
 ## 2. Information We Collect and How We Use It
 
-MindBuddy is designed with a **privacy-first, local-first architecture**. 
+MindBuddy is designed with a **privacy-first, local-first architecture**.
 
 ### A. Information Stored and Processed Locally on Your Device
 The following data is created, saved, and processed **exclusively on your device** using local storage (`AsyncStorage`) and on-device runtime memory:
@@ -43,11 +43,11 @@ The following data is created, saved, and processed **exclusively on your device
 We partner with select third-party service providers to deliver essential app features, such as monetization through non-intrusive advertisements:
 
 #### Google AdMob (Google Play Services)
-MindBuddy displays banner ads and optional user-initiated rewarded ads (for earning virtual coins) powered by Google AdMob (`react-native-google-mobile-ads`). 
-Google AdMob may collect and process certain information in accordance with [Google's Privacy & Terms](https://policies.google.com/privacy) and Google Play's Families & Advertising Policies:
+MindBuddy displays banner ads and optional user-initiated rewarded ads (for earning virtual coins) powered exclusively by Google AdMob (`react-native-google-mobile-ads`).  
+Google AdMob may collect and process certain information in accordance with [Google's Privacy & Terms](https://policies.google.com/privacy) and Google Play's Advertising Policies:
 - **Device & Advertising Identifiers:** Google Advertising ID (AAID on Android), IP address, and general device specifications (e.g., model, OS version).
 - **Diagnostics & Analytics:** Ad impressions, clicks, performance metrics, and crash/diagnostic logs for fraud prevention and network security.
-- **Ad Personalization:** Depending on your device settings and consent, Google may serve personalized or non-personalized ads. You can reset or disable personalized ads at any time via your device settings (`Settings` > `Google` > `Ads`).
+- **Ad Personalization & GDPR Consent (UMP SDK):** For users in the European Economic Area (EEA) and UK, MindBuddy obtains prior explicit consent via Google's certified **User Messaging Platform (UMP)** before initializing ads. Depending on your choice, Google serves personalized or non-personalized (contextual) ads. You can update or withdraw your ad consent at any time via **Settings > Privacy / Ad Preferences** inside the App, or reset your advertising ID via your Android device settings (`Settings` > `Google` > `Ads`).
 
 #### Pro Waitlist (Optional)
 If you voluntarily choose to sign up for our MindBuddy Pro early-access waitlist, you may submit your email address. This email address is used solely for notifying you about future updates and discounts regarding MindBuddy Pro. We never sell, rent, or trade your email address to third parties.
@@ -78,7 +78,7 @@ MindBuddy **does NOT request or access**:
 ## 4. Data Sharing and Disclosure
 
 - **No Sale of Personal Data:** We do not sell, rent, or lease personal information or usage histories to third parties or data brokers.
-- **Third-Party Service Providers:** We only share data with Google AdMob as described in Section 2(B) to support in-app advertising.
+- **Third-Party Service Providers:** We only share advertising telemetry with Google AdMob as described in Section 2(B) to support in-app advertising.
 - **Legal Compliance:** We may disclose information if required by applicable law, regulation, legal process, or governmental request.
 
 ---
@@ -87,8 +87,8 @@ MindBuddy **does NOT request or access**:
 
 - **Local Data Retention:** All session logs, settings, and streak metrics remain stored in your device's local application sandbox until you clear the app data or uninstall the App.
 - **Exporting Your Data:** You can export all session records as a structured JSON file at any time via the History/Settings screen.
-- **Data Deletion:** 
-  - To delete all stored data, simply clear the App's storage via your device settings (`Settings` > `Apps` > `MindBuddy` > `Storage` > `Clear Storage/Data`) or uninstall the App.
+- **Data Deletion:**
+  - To delete all stored local data, simply clear the App's storage via your device settings (`Settings` > `Apps` > `MindBuddy` > `Storage` > `Clear Storage/Data`) or uninstall the App.
   - If you submitted your email for the optional Pro Waitlist and wish to have it deleted from our records, you may email us at any time (contact details below), and we will delete your record within 30 days.
 
 ---
@@ -108,9 +108,11 @@ We take reasonable technical and administrative precautions to safeguard your in
 ## 8. International Users (GDPR & CCPA/CPRA)
 
 If you are a resident of the European Economic Area (EEA), UK, or California:
+- **GDPR Legal Bases (Art. 6 GDPR):** We process local app data strictly to perform the service you requested (Art. 6(1)(b)), and we process advertising identifiers (via Google AdMob UMP) or optional Pro Waitlist emails solely based on your explicit prior consent (Art. 6(1)(a)).
 - **Right to Access & Portability:** You have the right to access and export your data directly through the in-app JSON export function.
-- **Right to Erasure:** You can erase all data directly by clearing app storage or contacting us for waitlist email removal.
-- **Right to Object / Opt-Out:** You can opt out of personalized tracking via Google's ad personalization settings on your Android device.
+- **Right to Erasure:** You can erase all local data directly by clearing app storage or contacting us for waitlist email removal.
+- **Right to Withdraw Consent & Object:** You can withdraw ad consent at any time inside the App's privacy settings (**Settings > Privacy / Ad Preferences**) or opt out via your Android device settings.
+- **Supervisory Authority:** EEA/UK residents have the right to lodge a complaint with their local data protection authority (in Portugal, the **Comissão Nacional de Proteção de Dados — CNPD** at [www.cnpd.pt](https://www.cnpd.pt)).
 
 ---
 
@@ -126,29 +128,4 @@ Google Play strictly prohibits apps from capitalizing on or profiting from sensi
 
 ## 10. Prevention of Deception, Misrepresentation, and Abuse
 
-In strict compliance with Google Play's **Deceptive Behavior and Misrepresentation Policies**:
-
-- **No Deceptive Functionality:** MindBuddy performs strictly as advertised. The timer, soundscapes, breathing exercises, and streak tracking function exactly as described in app listings and documentation without hidden behaviors, unauthorized background data harvesting, or spoofed interfaces.
-- **Truth in Advertising & Rewards:** The in-app coin balance system operates with full transparency:
-  - Coins earned through daily bonuses, hourly claims, or optional rewarded ads are clearly displayed.
-  - Coins are virtual in-app utilities used solely to initiate timers and unlock local features (such as JSON exports); they have no real-world cash value and cannot be redeemed for fiat currency.
-  - The App does not employ deceptive mechanics, forced clicks, misleading ad placements, or fake close buttons ("dark patterns").
-- **No Impersonation or False Affiliation:** MindBuddy does not mimic, spoof, or misrepresent affiliation with any official health organization, governmental body, or medical institution.
-- **Malware, Abuse & Security:** MindBuddy contains no spyware, trojans, adware, or unauthorized background payloads. The app adheres to secure coding standards and utilizes only official, audited libraries (such as Google Mobile Ads SDK and Expo modules).
-
----
-
-## 11. Changes to this Privacy Policy
-
-We may update this Privacy Policy from time to time to reflect changes in our practices, app features, or regulatory requirements. We will update the "Last Updated" date at the top of this policy and notify users via an app update or release notes.
-
----
-
-## 12. Contact Us
-
-If you have questions, feedback, or concerns regarding this Privacy Policy or our privacy practices, please contact us at:
-
-- **Developer:** Ricardo Barbosa
-- **App Name:** MindBuddy
-- **Package ID:** `com.rdba.mindbuddy`
-- **Email:** mybuddyappsupport@gmail.com *(or contact via GitHub repository: [ricardodbarbosa/MindBuddy](https://github.com/ricardodbarbosa/MindBuddy))*
+In strict compliance

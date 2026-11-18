@@ -1,9 +1,9 @@
 # Privacy Policy for WaterBuddy
 
 **Effective Date:** October 2, 2026  
-**Last Updated:** October 2, 2026
+**Last Updated:** November 17, 2026
 
-WaterBuddy ("we", "our", or "us") respects your privacy. This Privacy Policy outlines how your information is handled when you use the WaterBuddy mobile application (the "App") available on Android (package `com.ricardodbarbosa.waterbuddy`) and iOS.
+WaterBuddy ("we", "our", or "us"), developed by Ricardo Barbosa (**Buddy App Studio**), respects your privacy. This Privacy Policy outlines how your information is handled when you use the WaterBuddy mobile application (the "App") available on Android (package `com.ricardodbarbosa.waterbuddy`) and iOS, in compliance with Google Play Developer Policies and the European Union General Data Protection Regulation (GDPR).
 
 ---
 
@@ -11,7 +11,7 @@ WaterBuddy ("we", "our", or "us") respects your privacy. This Privacy Policy out
 
 - **Offline-First & Local Storage:** Your water logs, hydration history, target goals, and health assessment data are stored locally on your device via AsyncStorage. We do not operate a private database or server tracking your hydration records.
 - **No Mandatory Account:** You can use WaterBuddy without creating an account or providing your name.
-- **Third-Party Advertising:** The free version uses Google AdMob to display banner, interstitial, and rewarded video ads. AdMob may collect and process device identifiers, ad interaction data, and approximate location.
+- **Third-Party Advertising & GDPR Consent:** The free version uses Google AdMob to display banner, interstitial, and rewarded video ads. For users in the European Economic Area (EEA) and UK, prior explicit consent is obtained via Google's User Messaging Platform (UMP) before initializing ads.
 - **Optional Pro Waitlist:** If you submit your email for the WaterBuddy Pro waitlist, your email is transmitted securely via Web3Forms solely to notify you when the feature is ready.
 - **Data Export & Portability:** You have full control over your data and can export or clear your hydration records at any time.
 
@@ -34,9 +34,10 @@ The following data is created through your use of the App and stored strictly on
 ### C. Automatically Collected Information (Third-Party Services)
 The App integrates with third-party software development kits (SDKs) that may collect diagnostic or advertising data:
 
-1. **Google AdMob (react-native-google-mobile-ads):**
+1. **Google AdMob (`react-native-google-mobile-ads`):**
    - **Data Collected:** Mobile Advertising IDs (such as Google Advertising ID / IDFA), IP address (for approximate location / fraud prevention), ad interaction data, device make/model, OS version, and diagnostic logs.
    - **Purpose:** Serving personalized and non-personalized advertisements (banner, interstitial, rewarded video ads) and preventing advertising fraud.
+   - **GDPR Consent (UMP SDK):** For users in the European Economic Area (EEA) and UK, WaterBuddy obtains prior explicit consent via Google's certified **User Messaging Platform (UMP)** before initializing ads. You can update or withdraw your ad consent at any time via **Settings > Privacy / Ad Preferences** inside the App.
    - **AdMob Privacy Policy:** [Google Privacy & Terms](https://policies.google.com/technologies/ads) | [Google Partner Policy](https://policies.google.com/technologies/partner-sites)
 
 2. **Expo & Crash Telemetry (if applicable):**
@@ -60,7 +61,7 @@ We use the data collected or stored for the following purposes:
 - To calculate and display your daily water intake progress and health coach tips.
 - To schedule hydration reminders according to your chosen window and interval.
 - To maintain your gamification streak and reward points.
-- To display in-app advertisements through Google AdMob to support free app maintenance.
+- To display in-app advertisements through Google AdMob (subject to GDPR consent in the EEA/UK) to support free app maintenance.
 - To notify you about WaterBuddy Pro if you voluntarily joined the waitlist.
 
 ---
@@ -126,12 +127,14 @@ WaterBuddy is not directed at children under the age of 13 (or under the age of 
 
 ---
 
-## 12. Your Rights (GDPR & CCPA/CPRA)
+## 12. Your Rights & Legal Bases (GDPR & CCPA/CPRA)
 
-Depending on your jurisdiction (such as the European Economic Area, the UK, or California, USA), you have rights regarding your personal information:
-- **Right to Access & Portability:** You can export all your hydration logs at any time via Settings > Export Data (JSON).
-- **Right to Erasure:** You can wipe all stored data via Settings > Reset Data.
-- **Ad Tracking Choices:** You can manage or reset your advertising ID or opt out of personalized ads via your Android device settings (**Settings > Google > Ads**) or iOS device settings (**Settings > Privacy & Security > Tracking**).
+Depending on your jurisdiction (such as the European Economic Area, the UK, or California, USA), you have specific rights regarding your personal information:
+- **GDPR Legal Bases (Art. 6 GDPR):** We process local app data strictly to perform the hydration tracking service you requested (Art. 6(1)(b)), and we process advertising identifiers (via Google AdMob UMP) or optional Pro Waitlist emails solely based on your explicit prior consent (Art. 6(1)(a)).
+- **Right to Access & Portability:** You can export all your hydration logs at any time via **Settings > Export Data (JSON)**.
+- **Right to Erasure:** You can wipe all stored data via **Settings > Reset Data**, or email us to remove your waitlist record.
+- **Right to Withdraw Consent & Ad Tracking Choices:** You can update or withdraw your ad consent at any time via **Settings > Privacy / Ad Preferences** inside the App, or manage/reset your advertising ID via your Android device settings (**Settings > Google > Ads**) or iOS device settings (**Settings > Privacy & Security > Tracking**).
+- **Supervisory Authority:** EEA/UK residents have the right to lodge a complaint with their local data protection authority (in Portugal, the **Comissão Nacional de Proteção de Dados — CNPD** at [www.cnpd.pt](https://www.cnpd.pt)).
 
 ---
 
@@ -141,10 +144,12 @@ We may update this Privacy Policy from time to time. Any changes will be reflect
 
 ---
 
-## 14. Contact Us
+## 14. Contact Us (Data Controller)
 
-If you have questions, feedback, or data privacy requests regarding WaterBuddy, please contact:
+If you have questions, feedback, or data privacy requests regarding WaterBuddy, please contact the Data Controller:
 
-- **Developer:** Ricardo Barbosa
+- **Developer / Data Controller:** Ricardo Barbosa (Buddy App Studio)
+- **App Name:** WaterBuddy
+- **Package ID:** `com.ricardodbarbosa.waterbuddy`
 - **Email:** mybuddyappsupport@gmail.com
 - **App Repository / Support:** [https://github.com/ricardodbarbosa/WaterBuddy](https://github.com/ricardodbarbosa/WaterBuddy)
