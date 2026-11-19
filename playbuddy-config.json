@@ -1,0 +1,15 @@
+{
+  "app": "PlayBuddy",
+  "adMode": "none",
+  "adModes": {
+    "banner": "google",
+    "interstitial": "google",
+    "rewarded": "buddyapps",
+    "native": "none"
+  },
+  "allowCoinsWhenDisabled": true,
+  "houseAdDurationSeconds": 5,
+  "adRewardCoins": 100,
+  "notes": "adModes allows per-format mix: banner, interstitial, rewarded, native ('all', 'google', 'buddyapps', 'none'). adMode serves as the fallback. allowCoinsWhenDisabled: true allows users to claim bonus coins even when ads are deactivated.",
+  "updatedAt": "2026-11-19T17:30:00Z"
+}
